@@ -363,7 +363,7 @@ name = "exceptiongroup"
 version = "1.3.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "typing-extensions", marker = "python_full_version < '3.13'" },
+    { name = "typing-extensions" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/50/79/66800aadf48771f6b62f7eb014e352e5d06856655206165d775e675a02c9/exceptiongroup-1.3.1.tar.gz", hash = "sha256:8b412432c6055b0b7d14c310000ae93352ed6754f70fa8f7c34141f91c4e3219", size = 30371, upload-time = "2025-11-21T23:01:54.787Z" }
 wheels = [
@@ -519,55 +519,6 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/01/ee/02a2c011bdab74c6fb3c75474d40b3052059d95df7e73351460c8588d963/h11-0.16.0.tar.gz", hash = "sha256:4e35b956cf45792e4caa5885e69fba00bdbc6ffafbfa020300e549b208ee5ff1", size = 101250, upload-time = "2025-04-24T03:35:25.427Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/04/4b/29cac41a4d98d144bf5f6d33995617b185d14b22401f75ca86f384e87ff1/h11-0.16.0-py3-none-any.whl", hash = "sha256:63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86", size = 37515, upload-time = "2025-04-24T03:35:24.344Z" },
-]
-
-[[package]]
-name = "hike"
-version = "1.4.0"
-source = { editable = "." }
-dependencies = [
-    { name = "httpx" },
-    { name = "pyperclip" },
-    { name = "textual" },
-    { name = "textual-enhanced" },
-    { name = "textual-fspicker" },
-    { name = "typing-extensions" },
-    { name = "xdg-base-dirs" },
-]
-
-[package.dev-dependencies]
-dev = [
-    { name = "codespell" },
-    { name = "markdown-exec" },
-    { name = "mkdocs-material" },
-    { name = "mypy" },
-    { name = "pre-commit" },
-    { name = "pytest" },
-    { name = "ruff" },
-    { name = "textual-dev" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "httpx", specifier = ">=0.28.1" },
-    { name = "pyperclip", specifier = ">=1.9.0" },
-    { name = "textual", specifier = ">=5.3.0" },
-    { name = "textual-enhanced", specifier = ">=0.13.0" },
-    { name = "textual-fspicker", specifier = ">=0.4.1" },
-    { name = "typing-extensions", specifier = ">=4.12.2" },
-    { name = "xdg-base-dirs", specifier = ">=6.0.2" },
-]
-
-[package.metadata.requires-dev]
-dev = [
-    { name = "codespell", specifier = ">=2.4.1" },
-    { name = "markdown-exec", specifier = ">=1.10.3" },
-    { name = "mkdocs-material", specifier = ">=9.6.11" },
-    { name = "mypy", specifier = ">=1.15.0" },
-    { name = "pre-commit", specifier = ">=4.1.0" },
-    { name = "pytest", specifier = ">=8.3.4" },
-    { name = "ruff", specifier = ">=0.12.9" },
-    { name = "textual-dev", specifier = ">=1.7.0" },
 ]
 
 [[package]]
@@ -1591,6 +1542,71 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz", hash = "sha256:ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81", size = 34031, upload-time = "2024-12-04T17:35:28.174Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/b7/ce/149a00dd41f10bc29e5921b496af8b574d8413afcd5e30dfa0ed46c2cc5e/six-1.17.0-py2.py3-none-any.whl", hash = "sha256:4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274", size = 11050, upload-time = "2024-12-04T17:35:26.475Z" },
+]
+
+[[package]]
+name = "summit-md"
+version = "0.1.0"
+source = { editable = "." }
+dependencies = [
+    { name = "httpx" },
+    { name = "pyperclip" },
+    { name = "termaid", extra = ["rich"] },
+    { name = "textual" },
+    { name = "textual-enhanced" },
+    { name = "textual-fspicker" },
+    { name = "typing-extensions" },
+    { name = "xdg-base-dirs" },
+]
+
+[package.dev-dependencies]
+dev = [
+    { name = "codespell" },
+    { name = "markdown-exec" },
+    { name = "mkdocs-material" },
+    { name = "mypy" },
+    { name = "pre-commit" },
+    { name = "pytest" },
+    { name = "ruff" },
+    { name = "textual-dev" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "httpx", specifier = ">=0.28.1" },
+    { name = "pyperclip", specifier = ">=1.9.0" },
+    { name = "termaid", extras = ["rich"], specifier = ">=0.8.0" },
+    { name = "textual", specifier = ">=5.3.0" },
+    { name = "textual-enhanced", specifier = ">=0.13.0" },
+    { name = "textual-fspicker", specifier = ">=0.4.1" },
+    { name = "typing-extensions", specifier = ">=4.12.2" },
+    { name = "xdg-base-dirs", specifier = ">=6.0.2" },
+]
+
+[package.metadata.requires-dev]
+dev = [
+    { name = "codespell", specifier = ">=2.4.1" },
+    { name = "markdown-exec", specifier = ">=1.10.3" },
+    { name = "mkdocs-material", specifier = ">=9.6.11" },
+    { name = "mypy", specifier = ">=1.15.0" },
+    { name = "pre-commit", specifier = ">=4.1.0" },
+    { name = "pytest", specifier = ">=8.3.4" },
+    { name = "ruff", specifier = ">=0.12.9" },
+    { name = "textual-dev", specifier = ">=1.7.0" },
+]
+
+[[package]]
+name = "termaid"
+version = "0.8.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/02/74/951acc74226adf541b876257787fbf1f8a68d81f2d6a59749165b51dba44/termaid-0.8.0.tar.gz", hash = "sha256:58c4b8960bd4382b1b13c79f1beb9a53ebcbc58531fc8ecea8c64a307112f377", size = 401844, upload-time = "2026-07-29T08:52:05.975Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/05/e6/2f1cdca71adb5864a97ad06c0f0b509e9ab9592b3da83f2dd5708a61ec68/termaid-0.8.0-py3-none-any.whl", hash = "sha256:3b572ed705bbca77eeffcbc1906a73f1c8119613a0552bb2ff7463a2672b1cb3", size = 159955, upload-time = "2026-07-29T08:52:04.707Z" },
+]
+
+[package.optional-dependencies]
+rich = [
+    { name = "rich" },
 ]
 
 [[package]]

@@ -117,19 +117,19 @@ class QuitCommand(GeneralCommand):
 
 ##############################################################################
 class ChangeLogCommand(GeneralCommand):
-    """Show Hike's ChangeLog"""
+    """Show Summit's ChangeLog"""
 
     COMMAND = "`changelog`"
     ALIASES = "`cl`"
-    MESSAGE = partial(HandleInput, "github davep hike ChangeLog.md")
+    MESSAGE = partial(HandleInput, "github W4N2 summit ChangeLog.md")
 
 
 ##############################################################################
 class ReadMeCommand(GeneralCommand):
-    """Show Hike's README"""
+    """Show Summit's README"""
 
     COMMAND = "`readme`"
-    MESSAGE = partial(HandleInput, "github davep hike")
+    MESSAGE = partial(HandleInput, "github W4N2 summit")
 
 
 ### general.py ends here

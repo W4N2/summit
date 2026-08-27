@@ -1,3 +1,21 @@
+# Summit ChangeLog
+
+All notable changes to Summit will be documented in this file.
+
+Summit is a fork of [Hike](https://github.com/davep/hike). See below for upstream Hike history.
+
+## Summit 0.1.0
+
+**Released: 2026-08-27**
+
+- Forked from Hike v1.4.0
+- Renamed package to `summit-md` with `summit` CLI command
+- Added native Mermaid diagram rendering for ` ```mermaid ` fenced blocks
+- Added `render_mermaid` and `mermaid_theme` configuration options
+- Config and data stored under `~/.config/summit/` and `~/.local/share/summit/`
+
+---
+
 # Hike ChangeLog
 
 ## Unreleased

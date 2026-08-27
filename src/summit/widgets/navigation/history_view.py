@@ -26,14 +26,14 @@ from ...messages import (
     OpenFromHistory,
     RemoveHistoryEntry,
 )
-from ...types import HikeHistory, HikeLocation
+from ...types import SummitHistory, SummitLocation
 
 
 ##############################################################################
 class Location(Option):
     """A location within the history."""
 
-    def __init__(self, location_id: int, location: HikeLocation) -> None:
+    def __init__(self, location_id: int, location: SummitLocation) -> None:
         """Initialise the location object.
 
         Args:
@@ -100,7 +100,7 @@ class HistoryView(EnhancedOptionList):
         ),
     ]
 
-    def update(self, history: HikeHistory) -> None:
+    def update(self, history: SummitHistory) -> None:
         """Update the content of the history view.
 
         Args:

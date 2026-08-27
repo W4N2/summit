@@ -17,7 +17,7 @@ from textual_enhanced.commands import CommandHit, CommandHits, CommandsProvider
 # Local imports.
 from ..icons import LOCAL_FILE_ICON, REMOTE_FILE_ICON
 from ..messages import OpenLocation
-from ..types import HikeHistory, HikeLocation
+from ..types import SummitHistory, SummitLocation
 
 
 ##############################################################################
@@ -26,7 +26,7 @@ from ..types import HikeHistory, HikeLocation
 class Historical:
     """Holds a location from history."""
 
-    location: HikeLocation
+    location: SummitLocation
     """The location."""
 
     @property
@@ -61,7 +61,7 @@ class Historical:
 class HistoryCommands(CommandsProvider):
     """A command palette provider related to history."""
 
-    history: HikeHistory = HikeHistory()
+    history: SummitHistory = SummitHistory()
     """The history."""
 
     @classmethod

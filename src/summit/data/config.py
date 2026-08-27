@@ -57,6 +57,12 @@ class Configuration:
     show_front_matter: bool = True
     """Should the viewer allow for the viewing of front matter?"""
 
+    render_mermaid: bool = True
+    """Should ```mermaid fenced blocks be rendered as diagrams?"""
+
+    mermaid_theme: str = "default"
+    """The termaid color theme used when rendering Mermaid diagrams."""
+
     allow_traditional_quit: bool = False
     """Ignore Textual's safety net for Ctrl+c?"""
 

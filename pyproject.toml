@@ -1,9 +1,10 @@
 [project]
-name = "hike"
-version = "1.4.0"
-description = "A Markdown browser for the terminal"
+name = "summit-md"
+version = "0.1.0"
+description = "A terminal Markdown browser with native Mermaid rendering, based on Hike"
 authors = [
-    { name = "Dave Pearson", email = "davep@davep.org" }
+    { name = "Dave Pearson", email = "davep@davep.org" },
+    { name = "W4N2" },
 ]
 dependencies = [
     "textual>=5.3.0",
@@ -13,6 +14,7 @@ dependencies = [
     "httpx>=0.28.1",
     "typing-extensions>=4.12.2",
     "pyperclip>=1.9.0",
+    "termaid[rich]>=0.8.0",
 ]
 readme = "README.md"
 requires-python = ">= 3.10"
@@ -27,9 +29,10 @@ keywords = [
     "markdown-viewer",
     "file-viewer",
     "file-browser",
+    "mermaid",
 ]
 classifiers = [
-    "Development Status :: 5 - Production/Stable",
+    "Development Status :: 4 - Beta",
     "Environment :: Console",
     "Intended Audience :: Developers",
     "Intended Audience :: End Users/Desktop",
@@ -54,19 +57,22 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://hike.davep.dev/"
-Repository = "https://github.com/davep/hike"
-Documentation = "https://hike.davep.dev/"
-Source = "https://github.com/davep/hike"
-Issues = "https://github.com/davep/hike/issues"
-Discussions = "https://github.com/davep/hike/discussions"
+Homepage = "https://github.com/W4N2/summit"
+Repository = "https://github.com/W4N2/summit"
+Documentation = "https://github.com/W4N2/summit#readme"
+Source = "https://github.com/W4N2/summit"
+Issues = "https://github.com/W4N2/summit/issues"
 
 [project.scripts]
-hike = "hike.__main__:main"
+summit = "summit.__main__:main"
 
 [build-system]
 requires = ["uv_build>=0.8.11,<0.9.0"]
 build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "summit"
+module-root = "src"
 
 [tool.uv]
 managed = true
@@ -96,21 +102,14 @@ exclude=[".venv"]
 
 [tool.ruff.lint]
 select = [
-    # pycodestyle
     "E",
-    # Pyflakes
     "F",
-    # pyupgrade
     "UP",
-    # flake8-bugbear
     "B",
-    # flake8-simplify
     "SIM",
-    # isort
     "I",
 ]
 ignore = [
-    # I think try...expect...pass reads far better.
     "SIM105",
 ]
 

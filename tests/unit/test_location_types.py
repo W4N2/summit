@@ -14,8 +14,8 @@ from pytest import mark
 
 ##############################################################################
 # Local imports.
-from hike.data import looks_urllike, maybe_markdown
-from hike.types import HikeLocation
+from summit.data import looks_urllike, maybe_markdown
+from summit.types import SummitLocation
 
 
 ##############################################################################
@@ -33,7 +33,7 @@ from hike.types import HikeLocation
         (URL("https://example.com/test.txt"), False),
     ),
 )
-def test_maybe_markdown(to_test: HikeLocation, expected: bool) -> None:
+def test_maybe_markdown(to_test: SummitLocation, expected: bool) -> None:
     """We should be able to make a good guess at what's a Markdown location."""
     assert maybe_markdown(to_test) is expected
 

@@ -9,7 +9,7 @@ from operator import attrgetter
 ##############################################################################
 # Local imports.
 from . import __doc__, __version__
-from .hike import Hike
+from .summit import Summit
 
 
 ##############################################################################
@@ -22,7 +22,7 @@ def get_args() -> Namespace:
 
     # Build the parser.
     parser = ArgumentParser(
-        prog="hike",
+        prog="summit",
         description=__doc__,
         epilog=f"v{__version__}",
     )
@@ -69,7 +69,7 @@ def get_args() -> Namespace:
     # The remainder is going to be the initial command.
     parser.add_argument(
         "command",
-        help="The initial command; can be any valid input to Hike's command line.",
+        help="The initial command; can be any valid input to Summit's command line.",
         nargs="*",
     )
 
@@ -99,7 +99,7 @@ def show_bindable_commands() -> None:
 ##############################################################################
 def show_themes() -> None:
     """Show the available themes."""
-    for theme in sorted(Hike(Namespace(theme=None)).available_themes):
+    for theme in sorted(Summit(Namespace(theme=None)).available_themes):
         if theme != "textual-ansi":
             print(theme)
 
@@ -109,13 +109,13 @@ def main() -> None:
     """The main entry point."""
     args = get_args()
     if args.license:
-        print(cleandoc(Hike.HELP_LICENSE))
+        print(cleandoc(Summit.HELP_LICENSE))
     elif args.bindings:
         show_bindable_commands()
     elif args.theme == "?":
         show_themes()
     else:
-        Hike(args).run()
+        Summit(args).run()
 
 
 ##############################################################################

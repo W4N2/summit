@@ -18,7 +18,7 @@ from httpx import URL
 
 ##############################################################################
 # Local imports.
-from ..types import HikeLocation
+from ..types import SummitLocation
 from .locations import data_dir
 
 
@@ -31,7 +31,7 @@ class Bookmark:
     title: str
     """The bookmark's title."""
 
-    location: HikeLocation
+    location: SummitLocation
     """The location of the bookmark."""
 
     @classmethod

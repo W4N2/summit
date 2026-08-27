@@ -27,7 +27,7 @@ from textual_enhanced.binding import HelpfulBinding
 # Local imports.
 from ...commands import JumpToCommandLine
 from ...data import Bookmark, Bookmarks, load_configuration
-from ...types import HikeHistory, HikeLocation
+from ...types import SummitHistory, SummitLocation
 from .bookmarks_view import BookmarksView
 from .history_view import HistoryView
 from .local_view import LocalView
@@ -178,7 +178,7 @@ class Navigation(Vertical):
             with TabPane("History", id="history"):
                 yield HistoryView()
 
-    def update_history(self, history: HikeHistory) -> None:
+    def update_history(self, history: SummitHistory) -> None:
         """Update the history display.
 
         Args:
@@ -214,7 +214,7 @@ class Navigation(Vertical):
         navigation: Navigation
         """The navigation widget sending the message."""
 
-    def add_bookmark(self, title: str, location: HikeLocation) -> None:
+    def add_bookmark(self, title: str, location: SummitLocation) -> None:
         """Add a bookmark.
 
         Args:

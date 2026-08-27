@@ -11,7 +11,7 @@ from httpx import URL
 
 ##############################################################################
 # Local imports.
-from ..types import HikeHistory
+from ..types import SummitHistory
 from .locations import data_dir
 
 
@@ -26,7 +26,7 @@ def history_file() -> Path:
 
 
 ##############################################################################
-def save_history(history: HikeHistory) -> None:
+def save_history(history: SummitHistory) -> None:
     """Save the history to storage.
 
     Args:
@@ -45,13 +45,13 @@ def save_history(history: HikeHistory) -> None:
 
 
 ##############################################################################
-def load_history() -> HikeHistory:
+def load_history() -> SummitHistory:
     """Load the history from storage.
 
     Returns:
         The loaded history.
     """
-    return HikeHistory(
+    return SummitHistory(
         [
             (URL if entry_type == "url" else Path)(entry)
             for entry_type, entry in loads(history.read_text(encoding="utf-8"))

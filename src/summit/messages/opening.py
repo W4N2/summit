@@ -17,7 +17,7 @@ from textual.message import Message
 # Local imports.
 from .. import USER_AGENT
 from ..data import load_configuration
-from ..types import HikeLocation
+from ..types import SummitLocation
 
 
 ##############################################################################
@@ -34,7 +34,7 @@ class OpenFrom(Message):
 class OpenLocation(Message):
     """Open a given location for viewing."""
 
-    to_open: HikeLocation
+    to_open: SummitLocation
     """The location to open."""
 
     anchor: str | None = None

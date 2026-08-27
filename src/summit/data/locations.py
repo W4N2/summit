@@ -23,7 +23,7 @@ def _app_dir(root: Path) -> Path:
         If the directory doesn't exist, it will be created as a side-effect
         of calling this function.
     """
-    (save_to := root / "hike").mkdir(parents=True, exist_ok=True)
+    (save_to := root / "summit").mkdir(parents=True, exist_ok=True)
     return save_to
 
 

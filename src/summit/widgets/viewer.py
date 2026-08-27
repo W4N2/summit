@@ -48,10 +48,10 @@ from .. import USER_AGENT
 from ..commands import JumpToCommandLine
 from ..data import is_editable, load_configuration, looks_urllike
 from ..editor import Editor
-from ..markdown import wikilink_plugin
+from ..markdown import SummitFence, wikilink_plugin
 from ..messages import CopyToClipboard, OpenLocation
 from ..support import is_copy_request_click, view_in_browser
-from ..types import HikeHistory, HikeLocation
+from ..types import SummitHistory, SummitLocation
 
 
 ##############################################################################
@@ -68,7 +68,7 @@ class ViewerTitle(Label):
     }
     """
 
-    location: var[HikeLocation | None] = var(None, always_update=True)
+    location: var[SummitLocation | None] = var(None, always_update=True)
     """The location to display."""
 
     def _watch_location(self) -> None:
@@ -160,14 +160,16 @@ class FrontMatter(Collapsible):
 
 
 ##############################################################################
-class HikeDown(Markdown):
-    """Hike's `Markdown` wrapper widget."""
+class SummitDown(Markdown):
+    """Summit's `Markdown` wrapper widget."""
 
     DEFAULT_CSS = """
-    HikeDown {
+    SummitDown {
         background: transparent;
     }
     """
+
+    BLOCKS = {**Markdown.BLOCKS, "fence": SummitFence, "code_block": SummitFence}
 
     front_matter: var[str | None] = var(None)
     """The content of any front matter found in the Markdown file."""
@@ -243,10 +245,10 @@ class Viewer(Vertical, can_focus=False):
         ("escape", "bounce_out"),
     ]
 
-    location: var[HikeLocation | None] = var(None)
+    location: var[SummitLocation | None] = var(None)
     """The location of the markdown being displayed."""
 
-    history: var[HikeHistory] = var(HikeHistory)
+    history: var[SummitHistory] = var(SummitHistory)
     """The history for the viewer."""
 
     _source: var[str] = var("")
@@ -261,7 +263,7 @@ class Viewer(Vertical, can_focus=False):
         yield Rule(line_style="heavy")
         yield FrontMatter()
         with MarkdownScroll(id="document"):
-            yield HikeDown()
+            yield SummitDown()
 
     def focus(self, scroll_visible: bool = True) -> Self:
         """Focus the viewer.
@@ -427,7 +429,7 @@ class Viewer(Vertical, can_focus=False):
 
     def _visit(
         self,
-        location: HikeLocation | None,
+        location: SummitLocation | None,
         remember: bool = True,
         preserve_position: bool = False,
     ) -> None:
@@ -458,12 +460,12 @@ class Viewer(Vertical, can_focus=False):
         front_matter_had_focus = self.query_one(FrontMatter).has_focus_within
         self.query_one(ViewerTitle).location = self.location
         self._source = message.markdown
-        await (hikedown := self.query_one(HikeDown)).update(message.markdown)
-        if front_matter_had_focus and not hikedown.front_matter:
+        await (summitdown := self.query_one(SummitDown)).update(message.markdown)
+        if front_matter_had_focus and not summitdown.front_matter:
             self.query_one(MarkdownScroll).focus()
-        self.query_one(FrontMatter).front_matter = hikedown.front_matter
+        self.query_one(FrontMatter).front_matter = summitdown.front_matter
         if self._seek_anchor:
-            self.query_one(HikeDown).goto_anchor(self._seek_anchor)
+            self.query_one(SummitDown).goto_anchor(self._seek_anchor)
             self._seek_anchor = None
         if (
             message.remember
@@ -532,11 +534,11 @@ class Viewer(Vertical, can_focus=False):
 
     def clear_history(self) -> None:
         """Clear all locations from history."""
-        self.history = HikeHistory()
+        self.history = SummitHistory()
 
     def deduplicate_history(self) -> None:
         """Squish history down so that there are no duplicates."""
-        self.history = HikeHistory(list(dict.fromkeys(self.history)))
+        self.history = SummitHistory(list(dict.fromkeys(self.history)))
 
     @on(Markdown.LinkClicked)
     def _handle_link(self, message: Markdown.LinkClicked) -> None:

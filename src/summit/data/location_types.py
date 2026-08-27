@@ -15,7 +15,7 @@ from typing_extensions import TypeIs
 ##############################################################################
 # Local imports.
 from .. import USER_AGENT
-from ..types import HikeLocation
+from ..types import SummitLocation
 from .config import load_configuration
 
 
@@ -52,7 +52,7 @@ def _(location: URL) -> bool:
 
 
 ##############################################################################
-async def can_be_negotiated_to_markdown(location: HikeLocation) -> bool:
+async def can_be_negotiated_to_markdown(location: SummitLocation) -> bool:
     """Can the given location be negotiated to Markdown?
 
     Args:
@@ -104,7 +104,7 @@ def looks_urllike(candidate: str) -> bool:
 
 
 ##############################################################################
-def is_editable(location: HikeLocation) -> TypeIs[Path]:
+def is_editable(location: SummitLocation) -> TypeIs[Path]:
     """Is the given location one that can be edited?
 
     Args:

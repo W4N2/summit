@@ -6,7 +6,7 @@ from pytest import mark
 
 ##############################################################################
 # Local imports.
-from hike.widgets.command_line.base_command import InputCommand
+from summit.widgets.command_line.base_command import InputCommand
 
 
 ##############################################################################

@@ -86,7 +86,7 @@ from ..widgets import CommandLine, Navigation, Viewer
 class Main(EnhancedScreen[None]):
     """The main screen for the application."""
 
-    TITLE = f"Hike v{__version__}"
+    TITLE = f"Summit v{__version__}"
 
     DEFAULT_CSS = """
     Main {

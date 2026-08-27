@@ -23,18 +23,22 @@ from .screens import Main
 
 
 ##############################################################################
-class Hike(EnhancedApp[None]):
+class Summit(EnhancedApp[None]):
     """The main application class."""
 
-    HELP_TITLE = f"Hike v{__version__}"
+    HELP_TITLE = f"Summit v{__version__}"
     HELP_ABOUT = """
-    `Hike` is a terminal-based Markdown viewer; it was created
-    by and is maintained by [Dave Pearson](https://www.davep.org/); it is
-    Free Software and can be [found on
-    GitHub](https://github.com/davep/hike).
+    `Summit` is a terminal-based Markdown browser with native Mermaid diagram
+    rendering. It is based on [Hike](https://github.com/davep/hike) by
+    [Dave Pearson](https://www.davep.org/) and maintained at
+    [github.com/W4N2/summit](https://github.com/W4N2/summit).
     """
     HELP_LICENSE = """
-    Hike - A Markdown viewer for the terminal.  \n    Copyright (C) 2025 Dave Pearson
+    Summit - A Markdown browser for the terminal with Mermaid rendering.
+    Copyright (C) 2025 Dave Pearson
+    Copyright (C) 2026 Summit contributors
+
+    Based on Hike (https://github.com/davep/hike).
 
     This program is free software: you can redistribute it and/or modify it
     under the terms of the GNU General Public License as published by the Free
@@ -93,4 +97,4 @@ class Hike(EnhancedApp[None]):
             super().action_help_quit()
 
 
-### hike.py ends here
+### summit.py ends here

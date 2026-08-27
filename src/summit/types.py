@@ -14,11 +14,11 @@ from httpx import URL
 from textual_enhanced.tools import History
 
 ##############################################################################
-HikeLocation: TypeAlias = Path | URL
+SummitLocation: TypeAlias = Path | URL
 """The type of a location."""
 
 ##############################################################################
-HikeHistory: TypeAlias = History[HikeLocation]
+SummitHistory: TypeAlias = History[SummitLocation]
 """The type of the browsing history."""
 
 ##############################################################################
