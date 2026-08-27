@@ -37,25 +37,48 @@ class SummitFence(MarkdownFence):
     """
 
     @classmethod
-    def highlight(cls, code: str, language: str) -> Content:
+    def highlight(
+        cls,
+        code: str,
+        language: str,
+        ansi: bool = False,
+        dark: bool = False,
+    ) -> Content:
         """Render Mermaid source as a terminal diagram when enabled."""
         lang = (language or "").strip().split()[0].lower()
         if lang in MERMAID_LANGUAGES and load_configuration().render_mermaid:
             return cls._render_mermaid(code)
-        return super().highlight(code, language)
+        return cls._syntax_highlight(code, language, ansi=ansi, dark=dark)
+
+    @classmethod
+    def _syntax_highlight(
+        cls, code: str, language: str, *, ansi: bool = False, dark: bool = False
+    ) -> Content:
+        """Highlight a fence, compatible with Textual 8.0 and 8.2+ signatures."""
+        parent = super().highlight
+        try:
+            return parent(code, language, ansi=ansi, dark=dark)
+        except TypeError:
+            return parent(code, language)
 
     @classmethod
     def _render_mermaid(cls, code: str) -> Content:
-        """Render Mermaid diagram source using termaid."""
+        """Render Mermaid diagram source as a terminal diagram."""
+        source = code.strip()
+        theme = load_configuration().mermaid_theme
+        try:
+            from .erd import is_er_diagram, render_er_rich
+
+            if is_er_diagram(source):
+                return render_er_rich(source, theme=theme)
+        except Exception:
+            pass
         try:
             from termaid import render_rich
 
-            return render_rich(
-                code.strip(),
-                theme=load_configuration().mermaid_theme,
-            )
+            return render_rich(source, theme=theme)
         except Exception:
-            return super().highlight(code.strip(), "text")
+            return cls._syntax_highlight(source, "text")
 
 
 ### mermaid.py ends here

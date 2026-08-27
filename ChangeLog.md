@@ -4,6 +4,10 @@ All notable changes to Summit will be documented in this file.
 
 Summit is a fork of [Hike](https://github.com/davep/hike). See below for upstream Hike history.
 
+## Unreleased
+
+- ER diagrams render with schema-style entity cards, crow's-foot notation, and Chen-style conceptual models when attributes are omitted
+
 ## Summit 0.1.0
 
 **Released: 2026-08-27**

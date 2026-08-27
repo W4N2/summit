@@ -54,6 +54,7 @@ Press <kbd>F1</kbd> inside the app for help, or <kbd>ctrl</kbd>+<kbd>p</kbd> for
 Summit keeps everything Hike does — local file browsing, forge shortcuts, bookmarks, history, wiki links, editing — and adds:
 
 - **Native Mermaid rendering** — ` ```mermaid ` blocks render as terminal diagrams (via [termaid](https://github.com/fasouto/termaid))
+- **ERDs and conceptual models** — `erDiagram` blocks use schema-style entity cards, crow's-foot notation, and Chen diamonds when attributes are omitted
 - **Configurable** — toggle rendering and pick a diagram theme in `~/.config/summit/configuration.json`
 
 Example configuration:
