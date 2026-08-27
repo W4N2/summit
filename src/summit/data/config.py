@@ -4,7 +4,7 @@
 # Python imports.
 from collections.abc import Iterator
 from contextlib import contextmanager
-from dataclasses import asdict, dataclass, field
+from dataclasses import asdict, dataclass, field, fields
 from functools import cache
 from json import dumps, loads
 from pathlib import Path
@@ -111,11 +111,11 @@ def load_configuration() -> Configuration:
         loaded from storage when necessary.
     """
     source = configuration_file()
-    return (
-        Configuration(**loads(source.read_text(encoding="utf-8")))
-        if source.exists()
-        else save_configuration(Configuration())
-    )
+    if not source.exists():
+        return save_configuration(Configuration())
+    known = {item.name for item in fields(Configuration)}
+    stored = loads(source.read_text(encoding="utf-8"))
+    return Configuration(**{key: value for key, value in stored.items() if key in known})
 
 
 ##############################################################################
