@@ -2,7 +2,7 @@
 
 A terminal Markdown browser with **native Mermaid diagram rendering**, forked from [Hike](https://github.com/davep/hike) by Dave Pearson.
 
-I use Hike a lot and I use mermaid a lot - so this vibe coded fork is for me.
+I use Hike a lot and I use mermaid a lot - so this vibe coded fork is for me. Only use this if you really need inline mermaid rendering.
 
 Published to pypi. I probably wont keep this maintained unless something breaks for me. 
 
