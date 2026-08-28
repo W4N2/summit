@@ -1,6 +1,10 @@
 # Summit
 
-A terminal Markdown browser with **native Mermaid diagram rendering**, based on [Hike](https://github.com/davep/hike) by Dave Pearson.
+A terminal Markdown browser with **native Mermaid diagram rendering**, forked from [Hike](https://github.com/davep/hike) by Dave Pearson.
+
+I use Hike a lot and I use mermaid a lot - so this vibe coded fork is for me.
+
+Published to pypi. I probably wont keep this maintained unless something breaks for me. 
 
 Install the **`summit-md`** package, run the **`summit`** command.
 
